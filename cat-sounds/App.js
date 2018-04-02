@@ -42,16 +42,17 @@ export default class App extends React.Component {
       Expo.Font.loadAsync({
         CooperBlack: require("./assets/CooperBlackRegular.ttf")
       }),
-      Expo.Asset.fromModule(require("./assets/1.mp4")),
-      Expo.Asset.fromModule(require("./assets/2.mp4")),
-      Expo.Asset.fromModule(require("./assets/3.mp4")),
-      Expo.Asset.fromModule(require("./assets/4.mp4")),
-      Expo.Asset.fromModule(require("./assets/5.mp4")),
-      Expo.Asset.fromModule(require("./assets/6.mp4")),
-      Expo.Asset.fromModule(require("./assets/7.mp4")),
-      Expo.Asset.fromModule(require("./assets/8.mp4")),
-      Expo.Asset.fromModule(require("./assets/9.mp4")),
-      Expo.Asset.fromModule(require("./assets/dog-barking.mp3")),
+      Expo.Asset.loadAsync([
+        require("./assets/1.mp4"),
+        require("./assets/2.mp4"),
+        require("./assets/3.mp4"),
+        require("./assets/4.mp4"),
+        require("./assets/5.mp4"),
+        require("./assets/6.mp4"),
+        require("./assets/7.mp4"),
+        require("./assets/8.mp4"),
+        require("./assets/9.mp4")
+      ])
     ]);
 
     this.setState({ isReady: true });
@@ -68,7 +69,6 @@ export default class App extends React.Component {
           style={{
             fontFamily: "CooperBlack",
             fontSize: 42,
-            fontWeight: "bold",
             color: yellow
           }}
         >
@@ -102,22 +102,6 @@ export default class App extends React.Component {
           <VideoButton source={require("./assets/9.mp4")} />
         </View>
       </View>
-    );
-  }
-}
-
-class AudioButton extends React.Component {
-  componentDidMount() {
-    this._sound = Expo
-
-  }
-
-  render() {
-    return (
-      <Button title="Let the Dogs Out" onPress={() => {
-
-
-      }} />
     );
   }
 }
